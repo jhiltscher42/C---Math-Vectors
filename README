@@ -1,0 +1,33 @@
+This small library is a helper tool.  It is completely Open Source; feel free
+to copy and use however you see fit, just as long as you give credit (or
+blame) where either is due.
+
+The library consists of one class, math_vector.
+
+math_vector can be constructed with cartesian coordinates using its base
+constructor, or by using the static helper function createFromPolar(angle,
+magnitude)
+
+The instances expose getters for X and Y for cartesian coordinates, and Angle
+(expressed in degrees) and Magnitude
+
+There are no setters; instead, you use rotate(degrees) negative going counter
+clockwise to adjust the angle, the overloaded multiplication and division
+operators to adjust the magnitude, and the overloaded addition and subtraction
+operators (on math_vector references)
+
+For speed reasons, there is also a rightAngle() function which uses a special
+property of cartesian coordinate systems to avoid the expensive trigonometric
+calls.  For 'historical reasons' (read: the first time I wrote these routines,
+I had to chose a direction) rightAngle() goes counter clockwise.
+
+The operators, rotate, and rightAngle all return math_vector copies, for
+chaining calls.  So, for instance, to go clockwise without using trig calls,
+you can:
+    math_vector ex=old_vector.rightAngle()*-1;
+    which leaves the magnitude the same size, but changes the angle to point
+    in the opposite direction.
+
+Due to it's size, this library could be used as just an object file with no
+adjustment.  The Makefile constructs it to a shared lib for completeness sake.
+
