@@ -31,3 +31,11 @@ you can:
 Due to it's size, this library could be used as just an object file with no
 adjustment.  The Makefile constructs it to a shared lib for completeness sake.
 
+Also, the convention the angles follow is 
+     North :: Up    :: -y direction :: angle 0
+     East  :: Right :: +x direction :: angle 90
+
+angles greater than or equal to 360 get 360 subtracted from them until they
+are in range, angles less than 0 get 360 added to them.
+
+ 
