@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
   printf("should be {0,0} {1,1} {1,-1}\n");
   PRINT_EM;
 
-  printf("should be {2,0} {1,1} {1,-1}\n");
-  V1=V2+V3;
+  printf("should be {3,-1} {1,1} {1,-1}\n");
+  V1=V2+V3+V3;
   PRINT_EM;
 
   printf("should be {4,0} {2,2} {2,-2}\n");
