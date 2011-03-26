@@ -17,6 +17,8 @@ class math_vector{
   math_vector operator*(double magnitude);
   math_vector operator/(double magnitude);
 
+  double cross(math_vector& op);
+
   math_vector rotate(double degrees);
   math_vector rightAngle();  //for historical reasons, goes counterclockwise
 };

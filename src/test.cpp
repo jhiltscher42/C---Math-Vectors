@@ -1,6 +1,7 @@
 #include "math_vector.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 
 int main(int argc, char *argv[])
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
   V1=math_vector::createFromPolar(0,1);
   V2=math_vector::createFromPolar(90,1);
   V3=math_vector::createFromPolar(225,1);
-  printf("should be {0,-1} {1,0} {-0.707,0.707)\n");
+  printf("should be {0,-1} {1,0} {-0.707,0.707}\n");
   PRINT_EM;
 
   V1=V1.rightAngle();
@@ -38,4 +39,24 @@ int main(int argc, char *argv[])
   printf("should be {-1,0} {1,0} {0,1}\n");
   PRINT_EM;
 
+  printf("properties of cross product: anti-commutative: b x a = -(a x b)\n");
+  printf("parrallel 2d vectors yield a zero vector.\n");
+  math_vector North(0,-1), NorthEast=North.rotate(45), East(1,0), South(0,1), West(-1,0);
+  
+  printf("North cross East and East cross North should reflect eachother\n");
+  double NcE=North.cross(East),EcN=East.cross(North);
+
+  printf("North cross East (%g)\n",NcE);
+  printf("East cross North (%g)\n",EcN);
+ 
+  printf("North cross South (should be 0) ");
+  printf("%g\n",North.cross(South));
+
+  printf("North cross NorthEast: %g\n",North.cross(NorthEast));
+  math_vector unit=North;
+  for (int n=0;n<36;n++)
+    {
+      unit=unit.rotate(5);
+      printf("%g degrees: %g\n",round(unit.getAngle()-North.getAngle()),North.cross(unit));
+    }
 }

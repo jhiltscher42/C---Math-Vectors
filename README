@@ -14,12 +14,19 @@ The instances expose getters for X and Y for cartesian coordinates, and Angle
 There are no setters; instead, you use rotate(degrees) negative going counter
 clockwise to adjust the angle, the overloaded multiplication and division
 operators to adjust the magnitude, and the overloaded addition and subtraction
-operators (on math_vector references)
+operators (on math_vector references) to adjust the x and y
 
 For speed reasons, there is also a rightAngle() function which uses a special
 property of cartesian coordinate systems to avoid the expensive trigonometric
 calls.  For 'historical reasons' (read: the first time I wrote these routines,
 I had to chose a direction) rightAngle() goes counter clockwise.
+
+Because cross product on vectors is useful for geometric algorithms, it is
+implemented here, returning the scalar value of the Z coordinate of the cross
+product.  On this coordinate system, this means that if the B in A.cross(B) is
+clockwise of A between 0 and 180, the return value is positive, if the angle
+of A and B is the same, the return value is 0, otherwise it's negative.
+
 
 The operators, rotate, and rightAngle all return math_vector copies, for
 chaining calls.  So, for instance, to go clockwise without using trig calls,
