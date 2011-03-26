@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
   V1=V2+V3+V3;
   PRINT_EM;
 
-  printf("should be {4,0} {2,2} {2,-2}\n");
+  printf("should be {6,-2} {2,2} {2,-2}\n");
   V1=V1*2;
   V2=V2*2;
   V3=V3*2;
