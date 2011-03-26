@@ -21,11 +21,10 @@ int main(int argc, char *argv[])
   V3=V3*2;
   PRINT_EM;
 
-  printf("should be 135\n->%g\n",V2.getAngle());
-  printf("should be 90\n->%g\n",V1.getAngle());
-  printf("should be 45\n->%g\n",V3.getAngle());
+  printf("should be 135\n->%g\n",math_vector(1,1).getAngle());
+  printf("should be 90\n->%g\n",math_vector(1,0).getAngle());
+  printf("should be 45\n->%g\n",math_vector(1,-1).getAngle());
   
-  printf("should be 4\n->%g\n",V1.getMagnitude());
   printf("should be 5\n->%g\n",math_vector(3,4).getMagnitude());
 
   V1=math_vector::createFromPolar(0,1);
