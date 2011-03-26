@@ -25,7 +25,7 @@ Because cross product on vectors is useful for geometric algorithms, it is
 implemented here, returning the scalar value of the Z coordinate of the cross
 product.  On this coordinate system, this means that if the B in A.cross(B) is
 clockwise of A between 0 and 180, the return value is positive, if the angle
-of A and B is the same, the return value is 0, otherwise it's negative.
+of A and B is the same, the return value is 0, otherwise it's negative.git 
 
 
 The operators, rotate, and rightAngle all return math_vector copies, for
